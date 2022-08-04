@@ -1,9 +1,10 @@
-import { Header } from 'components/Layout';
+import { GroupTasks, Header } from 'components/Layout';
 
 const Home = () => {
   return (
     <>
       <Header />
+      <GroupTasks />
     </>
   );
 };

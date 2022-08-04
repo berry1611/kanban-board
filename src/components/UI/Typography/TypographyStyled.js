@@ -1,11 +1,16 @@
 import styled from '@emotion/styled';
+import { colors } from 'constant';
+import { marginStyle, paddingStyle } from 'styles/paddingMarginStyle';
 
 export const TypographyStyled = styled.p`
   font-family: 'Nunito Sans';
-  font-size: ${(props) => `${props.fontSize}px` || '12px'};
-  font-weight: ${(props) => props.fontWeight || 400};
-  line-height: 20px;
-  color: ${(props) => props.color || 'black'};
+  font-size: ${(props) => `${props.fontSize || 12}px`};
+  font-weight: ${(props) => (props.bold ? 700 : 400)};
+  line-height: ${(props) => `${props.lineHeight || 20}px`};
+  color: ${(props) => props.color || colors.default};
   padding: 0;
   margin: 0;
+
+  ${paddingStyle};
+  ${marginStyle};
 `;

@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
   primary: {
     main: '#01959F',
     surface: '#F7FEFF',
@@ -17,3 +17,5 @@ export const colors = {
   },
   default: 'black',
 };
+
+export default colors;
