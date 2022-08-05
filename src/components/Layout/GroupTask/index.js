@@ -7,6 +7,8 @@ import { MdAddCircleOutline } from 'react-icons/md';
 const GroupTask = (props) => {
   const { name, color, month } = props;
 
+  const handleNewTask = () => {};
+
   return (
     <Board color={color}>
       <Box color={color}>
@@ -14,7 +16,7 @@ const GroupTask = (props) => {
       </Box>
       <Typography bold>{month}</Typography>
       <TaskTodo />
-      <Button display="flex" alignItems="center" gap="6.67px">
+      <Button display="flex" alignItems="center" gap="6.67px" onClick={handleNewTask}>
         <MdAddCircleOutline size={20} />
         <Typography>New Task</Typography>
       </Button>

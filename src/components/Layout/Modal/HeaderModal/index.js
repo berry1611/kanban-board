@@ -1,12 +1,15 @@
 import { Typography } from 'components/UI';
 import { Container, IconWrapper } from './HeaderModalStyled';
 import { CgClose } from 'react-icons/cg';
+import { useDispatch } from 'react-redux';
+import { ADD_GROUP_TASK_MODAL } from 'state/action-types';
 
 const HeaderModal = (props) => {
-  const { headerName, fontSize, lineHeight, closeButton, addIcon, setOpen, ...rest } = props;
+  const { headerName, fontSize, lineHeight, closeButton, addIcon, ...rest } = props;
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    setOpen(false);
+    dispatch({ type: ADD_GROUP_TASK_MODAL });
   };
 
   return (

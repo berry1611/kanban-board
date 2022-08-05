@@ -3,12 +3,13 @@ import { Button, Input, Typography } from 'components/UI';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createTodo } from 'state/action-creators/todos';
+import { ADD_GROUP_TASK_MODAL } from 'state/action-types';
 import { Footer, Container, Form, ModalBG } from './AddGroupTaskModalStyled';
 
 const initialState = { title: '', description: '' };
 
 const AddGroupTaskModal = (props) => {
-  const { open, setOpen } = props;
+  const { open } = props;
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ const AddGroupTaskModal = (props) => {
   };
 
   const handleCancel = () => {
-    setOpen(false);
+    dispatch({ type: ADD_GROUP_TASK_MODAL });
   };
 
   const handleSubmit = (e) => {
@@ -25,13 +26,13 @@ const AddGroupTaskModal = (props) => {
 
     dispatch(createTodo(formData));
     setFormData(initialState);
-    setOpen(false);
+    dispatch({ type: ADD_GROUP_TASK_MODAL });
   };
 
   return (
     <ModalBG open={open}>
       <Container>
-        <Header headerName="Create Group Task" lineHeight={28} flexGrow={1} padding="24px" closeButton borderRadius="10px 10px 0 0" setOpen={setOpen} />
+        <Header headerName="Create Group Task" lineHeight={28} flexGrow={1} padding="24px" closeButton borderRadius="10px 10px 0 0" />
         <Form onSubmit={handleSubmit}>
           <Typography bold>Title</Typography>
           <Input placeholder="Title" type="text" name="title" value={formData.title} onChange={handleChange} />
