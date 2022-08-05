@@ -1,9 +1,17 @@
 import { css } from '@emotion/react';
 
 const marginStyle = (props) => {
-  if (props.margin) {
+  if (props.margin === 0) {
     return css`
       margin: ${props.margin}px;
+    `;
+  } else if (props.margin) {
+    return css`
+      margin: ${props.margin}px;
+    `;
+  } else if (props.marginX && props.marginY) {
+    return css`
+      margin: ${props.marginY}px ${props.marginX}px;
     `;
   } else if (props.marginX) {
     return css`
@@ -20,15 +28,15 @@ const marginStyle = (props) => {
       margin-top: ${props.marginTop}px;
       margin-bottom: ${props.marginBottom}px;
     `;
-  } else {
-    return css`
-      margin: 0;
-    `;
   }
 };
 
 const paddingStyle = (props) => {
-  if (props.padding) {
+  if (props.padding === 0) {
+    return css`
+      padding: ${props.padding}px;
+    `;
+  } else if (props.padding) {
     return css`
       padding: ${props.padding}px;
     `;

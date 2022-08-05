@@ -6,6 +6,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import reducer from './state/reducer';
 import { Provider } from 'react-redux';
 import '@fontsource/nunito-sans';
+import '@fontsource/inter';
 
 const store = configureStore({ reducer });
 const root = ReactDOM.createRoot(document.getElementById('root'));

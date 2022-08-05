@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { colors } from 'constant';
-import { paddingStyle } from 'styles/paddingMarginStyle';
+import { marginStyle, paddingStyle } from 'styles/paddingMarginStyle';
 
 export const Container = styled.div`
   display: flex;
@@ -41,7 +41,9 @@ export const ProgressBar = styled.div`
   width: ${(props) => props.width || 0};
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-color: ${colors.primary.main};
+  border-top-right-radius: ${(props) => (props.complete ? '20px' : 0)};
+  border-bottom-right-radius: ${(props) => (props.complete ? '20px' : 0)};
+  background-color: ${(props) => (props.complete ? '#43936C' : colors.primary.main)};
 `;
 
 export const Box = styled.div`
@@ -49,4 +51,12 @@ export const Box = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  ${marginStyle};
+  ${paddingStyle};
 `;

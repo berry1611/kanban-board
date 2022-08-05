@@ -1,6 +1,7 @@
 import { Typography } from 'components/UI';
-import { Box, Container, Divider, ProgressBar, ProgressBarBG } from './TaskTodoStyled';
+import { Box, Container, Divider, IconWrapper, ProgressBar, ProgressBarBG } from './TaskTodoStyled';
 import { MdMoreHoriz } from 'react-icons/md';
+import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 const TaskTodo = (props) => {
   const { taskName, progress } = props;
@@ -21,13 +22,27 @@ const TaskTodo = (props) => {
         {taskName}
       </Typography>
       <Divider />
-      <Box>
-        <ProgressBarBG>
-          <ProgressBar width={`${progress}`} />
-        </ProgressBarBG>
-        <Typography marginRight={30}>50%</Typography>
-        <MdMoreHoriz size={30} color="#757575" />
-      </Box>
+      {progress === '100%' ? (
+        <Box>
+          <ProgressBarBG>
+            <ProgressBar width={`${progress}`} complete />
+          </ProgressBarBG>
+          <IconWrapper marginRight={30}>
+            <BsFillCheckCircleFill size={16} color="#43936C" />
+          </IconWrapper>
+          <MdMoreHoriz size={30} color="#757575" />
+        </Box>
+      ) : (
+        <Box>
+          <ProgressBarBG>
+            <ProgressBar width={`${progress}`} />
+          </ProgressBarBG>
+          <Typography marginRight={30} lineHeight={16} fontFamily="Inter" color="#757575">
+            {progress}
+          </Typography>
+          <MdMoreHoriz size={35} color="#757575" />
+        </Box>
+      )}
     </Container>
   );
 };

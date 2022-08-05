@@ -1,11 +1,13 @@
 import { Typography } from 'components/UI';
 import { Container } from './HeaderStyled';
 
-const Header = () => {
+const Header = (props) => {
+  const { headerName, fontSize, lineHeight, ...rest } = props;
+
   return (
-    <Container>
-      <Typography fontSize={18} bold>
-        Product Roadmap
+    <Container {...rest}>
+      <Typography fontSize={fontSize || 18} bold lineHeight={lineHeight}>
+        {headerName}
       </Typography>
     </Container>
   );

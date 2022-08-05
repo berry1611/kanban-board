@@ -14,7 +14,7 @@ const GroupTask = (props) => {
       </Box>
       <Typography bold>{month}</Typography>
       <TaskTodo />
-      <Button display="flex" alignItems="center">
+      <Button display="flex" alignItems="center" padding={0}>
         <MdAddCircleOutline size={20} />
         <Typography paddingLeft={6.67}>New Task</Typography>
       </Button>
