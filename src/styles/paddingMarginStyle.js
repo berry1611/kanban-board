@@ -23,10 +23,10 @@ const marginStyle = (props) => {
     `;
   } else if (props.marginTop || props.marginBottom || props.marginLeft || props.marginRight) {
     return css`
-      margin-left: ${props.marginLeft}px;
-      margin-right: ${props.marginRight}px;
-      margin-top: ${props.marginTop}px;
-      margin-bottom: ${props.marginBottom}px;
+      margin-left: ${props.marginLeft !== 'auto' ? `${props.marginLeft}px` : `${props.marginLeft}`};
+      margin-right: ${props.marginRight !== 'auto' ? `${props.marginRight}px` : `${props.marginRight}`};
+      margin-top: ${props.marginTop !== 'auto' ? `${props.marginTop}px` : `${props.marginTop}`};
+      margin-bottom: ${props.marginBottom !== 'auto' ? `${props.marginBottom}px` : `${props.marginBottom}`};
     `;
   }
 };

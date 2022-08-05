@@ -8,7 +8,7 @@ const FormInputModal = (props) => {
 
   return (
     <Container>
-      <Header headerName={headerName} lineHeight={28} display="flex" alignItems="center" flexGrow={1} padding={24} />
+      <Header headerName={headerName} justifyContent="space-between" lineHeight={28} flexGrow={1} padding={24} closeButton />
       <Form>
         <Typography bold>Task Name</Typography>
         <Input placeholder="Type your Task" type="text" />

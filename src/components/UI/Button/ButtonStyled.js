@@ -17,12 +17,12 @@ const colorSelector = ({ color }) => {
   } else if (color === 'danger') {
     return css`
       color: white;
-      background-color: ${colors.danger.border};
+      background-color: ${colors.danger.main};
     `;
   } else if (color === 'success') {
     return css`
       color: white;
-      background-color: ${colors.success.border};
+      background-color: ${colors.success.main};
     `;
   } else {
     return css`

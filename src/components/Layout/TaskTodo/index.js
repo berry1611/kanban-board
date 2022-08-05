@@ -2,6 +2,7 @@ import { Typography } from 'components/UI';
 import { Box, Container, Divider, IconWrapper, ProgressBar, ProgressBarBG } from './TaskTodoStyled';
 import { MdMoreHoriz } from 'react-icons/md';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { colors } from 'constant';
 
 const TaskTodo = (props) => {
   const { taskName, progress } = props;
@@ -28,7 +29,7 @@ const TaskTodo = (props) => {
             <ProgressBar width={`${progress}`} complete />
           </ProgressBarBG>
           <IconWrapper marginRight={30}>
-            <BsFillCheckCircleFill size={16} color="#43936C" />
+            <BsFillCheckCircleFill size={16} color={colors.success.main} />
           </IconWrapper>
           <MdMoreHoriz size={30} color="#757575" />
         </Box>
