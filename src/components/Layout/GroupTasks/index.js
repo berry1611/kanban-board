@@ -1,35 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import GroupTask from '../GroupTask';
 import { Container } from './GroupTasksStyled';
 
-const groupTasks = [
-  {
-    name: 'Group Task 1',
-    color: 'primary',
-    month: 'January - March',
-  },
-  {
-    name: 'Group Task 2',
-    color: 'secondary',
-    month: 'April - June',
-  },
-  {
-    name: 'Group Task 3',
-    color: 'danger',
-    month: 'July - September',
-  },
-  {
-    name: 'Group Task 4',
-    color: 'success',
-    month: 'October - December',
-  },
-];
+const color = ['primary', 'secondary', 'danger', 'success'];
 
 const GroupTasks = () => {
+  const groupTasks = useSelector((state) => state.groupTasks);
+
   return (
     <Container>
-      {groupTasks.map((groupTask) => (
-        <GroupTask name={groupTask.name} color={groupTask.color} month={groupTask.month} />
+      {groupTasks.map((groupTask, index) => (
+        <GroupTask name={groupTask.name} color={color[index % 4]} month={groupTask.month} />
       ))}
     </Container>
   );

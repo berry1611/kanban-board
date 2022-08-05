@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { marginStyle, paddingStyle } from 'styles/paddingMarginStyle';
 
 export const InputStyled = styled.input`
   display: flex;
@@ -11,7 +10,6 @@ export const InputStyled = styled.input`
   flex-grow: 1;
   box-sizing: border-box;
   width: ${(props) => props.width || '100%'};
-
-  ${paddingStyle};
-  ${marginStyle};
+  padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin};
 `;

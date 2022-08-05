@@ -9,7 +9,7 @@ const TaskTodo = (props) => {
 
   if (!taskName) {
     return (
-      <Container paddingY={8} paddingX={16}>
+      <Container padding="8px 16px">
         <Typography color="#757575" fontSize={14} lineHeight={24}>
           No Task
         </Typography>
@@ -28,7 +28,7 @@ const TaskTodo = (props) => {
           <ProgressBarBG>
             <ProgressBar width={`${progress}`} complete />
           </ProgressBarBG>
-          <IconWrapper marginRight={30}>
+          <IconWrapper margin="0 30px 0 0">
             <BsFillCheckCircleFill size={16} color={colors.success.main} />
           </IconWrapper>
           <MdMoreHoriz size={30} color="#757575" />
@@ -38,7 +38,7 @@ const TaskTodo = (props) => {
           <ProgressBarBG>
             <ProgressBar width={`${progress}`} />
           </ProgressBarBG>
-          <Typography marginRight={30} lineHeight={16} fontFamily="Inter" color="#757575">
+          <Typography margin="0 30px 0 0" lineHeight={16} fontFamily="Inter" color="#757575">
             {progress}
           </Typography>
           <MdMoreHoriz size={24} color="#757575" />

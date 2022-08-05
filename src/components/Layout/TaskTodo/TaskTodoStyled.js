@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { colors } from 'constant';
-import { marginStyle, paddingStyle } from 'styles/paddingMarginStyle';
 
 export const Container = styled.div`
   display: flex;
@@ -13,8 +12,8 @@ export const Container = styled.div`
   border-radius: 4px;
   box-sizing: border-box;
   width: 100%;
-
-  ${paddingStyle};
+  padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin};
 `;
 
 export const Divider = styled.hr`
@@ -56,7 +55,6 @@ export const Box = styled.div`
 export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
-
-  ${marginStyle};
-  ${paddingStyle};
+  padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin};
 `;

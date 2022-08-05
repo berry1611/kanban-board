@@ -1,21 +1,17 @@
-import { Typography } from 'components/UI';
-import { Container, IconWrapper } from './HeaderStyled';
-import { CgClose } from 'react-icons/cg';
+import { Button, Typography } from 'components/UI';
+import { Container } from './HeaderStyled';
+import { MdAdd } from 'react-icons/md';
 
-const Header = (props) => {
-  const { headerName, fontSize, lineHeight, closeButton, addIcon, ...rest } = props;
-
+const Header = () => {
   return (
-    <Container {...rest}>
-      {addIcon ? <IconWrapper marginRight={11}>{addIcon}</IconWrapper> : null}
-      <Typography fontSize={fontSize || 18} bold lineHeight={lineHeight}>
-        {headerName}
+    <Container>
+      <Typography fontSize={18} bold>
+        Product Roadmap
       </Typography>
-      {closeButton ? (
-        <IconWrapper marginLeft="auto">
-          <CgClose size={20} />
-        </IconWrapper>
-      ) : null}
+      <Button display="flex" alignItems="center" color="primary" padding="4px 16px" lineHeight={20} borderRadius={8} boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)">
+        <MdAdd />
+        Add New Group
+      </Button>
     </Container>
   );
 };

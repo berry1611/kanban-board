@@ -7,8 +7,6 @@ export const Container = styled.div`
   background-color: #ffffff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  left: 490px;
-  top: 295px;
 `;
 
 export const Form = styled.form`
@@ -28,4 +26,17 @@ export const Footer = styled.div`
   padding: 24px;
   background-color: white;
   border-radius: 0px 0px 10px 10px;
+`;
+
+export const ModalBG = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
 `;

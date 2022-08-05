@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { marginStyle, paddingStyle } from 'styles/paddingMarginStyle';
 import { colors } from 'constant';
 
 const colorSelector = ({ color }) => {
@@ -33,19 +32,23 @@ const colorSelector = ({ color }) => {
 };
 
 export const ButtonStyled = styled.button`
-  display: ${(props) => props.display || 'block'};
-  align-items: ${(props) => props.alignItems};
   font-family: 'Nunito Sans';
+  box-sizing: border-box;
+  cursor: pointer;
+  display: ${(props) => props.display || 'flex'};
+  align-items: ${(props) => props.alignItems || 'center'};
+  justify-content: ${(props) => props.justifyContent || 'flex-start'};
+  gap: ${(props) => props.gap || '4px'};
+  flex-direction: ${(props) => props.flexDirection || 'row'};
   font-size: ${(props) => `${props.fontSize || 12}px`};
   font-weight: ${(props) => (props.bold ? 700 : 400)};
   line-height: ${(props) => `${props.lineHeight || 12}px`};
   border: ${(props) => props.border || 'none'};
   border-radius: ${(props) => `${props.borderRadius || 0}px`};
-  box-sizing: border-box;
+  padding: ${(props) => props.padding || 0};
+  margin: ${(props) => props.margin || 0};
   box-shadow: ${(props) => props.boxShadow};
-  cursor: pointer;
+  width: ${(props) => props.width};
 
-  ${colorSelector}
-  ${paddingStyle}
-  ${marginStyle}
+  ${colorSelector};
 `;

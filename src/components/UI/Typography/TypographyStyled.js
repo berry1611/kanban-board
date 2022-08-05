@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { colors } from 'constant';
-import { marginStyle, paddingStyle } from 'styles/paddingMarginStyle';
 
 const colorSelector = ({ color }) => {
   if (color === 'primary') {
@@ -32,10 +31,8 @@ export const TypographyStyled = styled.p`
   font-size: ${(props) => `${props.fontSize || 12}px`};
   font-weight: ${(props) => (props.bold ? 700 : 400)};
   line-height: ${(props) => `${props.lineHeight || 20}px`};
-  padding: 0;
-  margin: 0;
+  padding: ${(props) => props.padding || 0};
+  margin: ${(props) => props.margin || 0};
 
   ${colorSelector};
-  ${paddingStyle};
-  ${marginStyle};
 `;
