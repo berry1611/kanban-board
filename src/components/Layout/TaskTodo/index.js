@@ -41,7 +41,7 @@ const TaskTodo = (props) => {
           <Typography marginRight={30} lineHeight={16} fontFamily="Inter" color="#757575">
             {progress}
           </Typography>
-          <MdMoreHoriz size={35} color="#757575" />
+          <MdMoreHoriz size={24} color="#757575" />
         </Box>
       )}
     </Container>

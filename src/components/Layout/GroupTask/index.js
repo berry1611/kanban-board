@@ -10,7 +10,7 @@ const GroupTask = (props) => {
   return (
     <Board color={color}>
       <Box color={color}>
-        <Typography>{name}</Typography>
+        <Typography color={color}>{name}</Typography>
       </Box>
       <Typography bold>{month}</Typography>
       <TaskTodo />

@@ -4,6 +4,7 @@ const colors = {
     surface: '#F7FEFF',
   },
   secondary: {
+    pressed: '#FA9810',
     border: '#FEEABC',
     surface: '#FFFCF5',
   },
