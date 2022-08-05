@@ -3,7 +3,11 @@ import { Container, IconWrapper } from './HeaderModalStyled';
 import { CgClose } from 'react-icons/cg';
 
 const HeaderModal = (props) => {
-  const { headerName, fontSize, lineHeight, closeButton, addIcon, ...rest } = props;
+  const { headerName, fontSize, lineHeight, closeButton, addIcon, setOpen, ...rest } = props;
+
+  const handleClick = () => {
+    setOpen(false);
+  };
 
   return (
     <Container {...rest}>
@@ -13,7 +17,7 @@ const HeaderModal = (props) => {
       </Typography>
       {closeButton ? (
         <IconWrapper margin="0 0 0 auto">
-          <CgClose size={20} />
+          <CgClose size={20} onClick={handleClick} />
         </IconWrapper>
       ) : null}
     </Container>

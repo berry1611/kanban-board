@@ -9,3 +9,4 @@ API.interceptors.request.use((req) => {
 });
 
 export const getTodos = () => API.get('/todos');
+export const createTodo = (formData) => API.post('/todos', formData);

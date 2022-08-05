@@ -1,5 +1,5 @@
 import { storageKey } from 'constant/storageKey';
-import { GET_TODOS, LOGIN, LOGOUT, SIGNUP } from 'state/action-types';
+import { CREATE_TODO, GET_TODOS, LOGIN, LOGOUT, SIGNUP } from 'state/action-types';
 
 const initialState = {
   groupTasks: [],
@@ -17,6 +17,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, authToken: null };
     case GET_TODOS:
       return { ...state, groupTasks: action.payload };
+    case CREATE_TODO:
+      return { ...state, groupTasks: [...state.groupTasks, action.payload] };
     default:
       return state;
   }

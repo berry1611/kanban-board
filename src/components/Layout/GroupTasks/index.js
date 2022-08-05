@@ -11,7 +11,7 @@ const GroupTasks = () => {
   return (
     <Container>
       {groupTasks.map((groupTask, index) => (
-        <GroupTask name={groupTask.name} color={color[index % 4]} month={groupTask.month} />
+        <GroupTask key={groupTask.id} name={groupTask.title} color={color[index % 4]} month={groupTask.description} />
       ))}
     </Container>
   );

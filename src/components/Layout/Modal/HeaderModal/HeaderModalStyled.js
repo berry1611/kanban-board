@@ -25,4 +25,5 @@ export const IconWrapper = styled.div`
   align-items: center;
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin};
+  cursor: pointer;
 `;

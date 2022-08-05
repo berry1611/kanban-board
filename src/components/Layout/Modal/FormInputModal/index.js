@@ -1,6 +1,5 @@
 import Header from 'components/Layout/Modal/HeaderModal';
 import { Button, Input, Typography } from 'components/UI';
-import React from 'react';
 import { Footer, Container, Form, ModalBG } from './FormInputModalStyled';
 
 const FormInputModal = (props) => {

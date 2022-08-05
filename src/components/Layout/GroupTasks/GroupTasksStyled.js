@@ -6,4 +6,5 @@ export const Container = styled.div`
   box-sizing: border-box;
   margin: 24px;
   gap: 16px;
+  flex-wrap: wrap;
 `;
