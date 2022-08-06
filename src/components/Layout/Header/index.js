@@ -2,15 +2,14 @@ import { Button, Typography } from 'components/UI';
 import { Container } from './HeaderStyled';
 import { MdAdd } from 'react-icons/md';
 import AddGroupTaskModal from '../Modal/AddGroupTaskModal';
-import { useDispatch, useSelector } from 'react-redux';
-import { ADD_GROUP_TASK_MODAL } from 'state/action-types';
+import { useDispatch } from 'react-redux';
+import { OPEN_GROUP_TASK_MODAL } from 'state/action-types';
 
 const Header = () => {
-  const { addGroupTask } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch({ type: ADD_GROUP_TASK_MODAL });
+    dispatch({ type: OPEN_GROUP_TASK_MODAL });
   };
 
   return (
@@ -22,7 +21,7 @@ const Header = () => {
         <MdAdd />
         Add New Group
       </Button>
-      <AddGroupTaskModal open={addGroupTask} />
+      <AddGroupTaskModal />
     </Container>
   );
 };

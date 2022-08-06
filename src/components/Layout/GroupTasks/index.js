@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import GroupTask from '../GroupTask';
 import { Container } from './GroupTasksStyled';
@@ -11,7 +10,7 @@ const GroupTasks = () => {
   return (
     <Container>
       {groupTasks.map((groupTask, index) => (
-        <GroupTask key={groupTask.id} name={groupTask.title} color={color[index % 4]} month={groupTask.description} />
+        <GroupTask key={groupTask.id} id={groupTask.id} name={groupTask.title} color={color[index % 4]} month={groupTask.description} />
       ))}
     </Container>
   );

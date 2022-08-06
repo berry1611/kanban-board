@@ -38,9 +38,7 @@ export const Board = styled.div`
   padding: 16px;
   border-radius: 4px;
   gap: 8px;
-  flex-grow: 1;
-  max-width: 326px;
-  min-width: 326px;
+  flex: 2 0 20%;
 
   ${colorSelector}
 `;

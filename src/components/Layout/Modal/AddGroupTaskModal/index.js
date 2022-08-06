@@ -1,15 +1,15 @@
 import Header from 'components/Layout/Modal/HeaderModal';
 import { Button, Input, Typography } from 'components/UI';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createTodo } from 'state/action-creators/todos';
-import { ADD_GROUP_TASK_MODAL } from 'state/action-types';
+import { CLOSE_ALL_MODAL } from 'state/action-types';
 import { Footer, Container, Form, ModalBG } from './AddGroupTaskModalStyled';
 
 const initialState = { title: '', description: '' };
 
-const AddGroupTaskModal = (props) => {
-  const { open } = props;
+const AddGroupTaskModal = () => {
+  const { addGroupTask } = useSelector((state) => state.modal);
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ const AddGroupTaskModal = (props) => {
   };
 
   const handleCancel = () => {
-    dispatch({ type: ADD_GROUP_TASK_MODAL });
+    dispatch({ type: CLOSE_ALL_MODAL });
   };
 
   const handleSubmit = (e) => {
@@ -26,11 +26,11 @@ const AddGroupTaskModal = (props) => {
 
     dispatch(createTodo(formData));
     setFormData(initialState);
-    dispatch({ type: ADD_GROUP_TASK_MODAL });
+    dispatch({ type: CLOSE_ALL_MODAL });
   };
 
   return (
-    <ModalBG open={open}>
+    <ModalBG open={addGroupTask}>
       <Container>
         <Header headerName="Create Group Task" lineHeight={28} flexGrow={1} padding="24px" closeButton borderRadius="10px 10px 0 0" />
         <Form onSubmit={handleSubmit}>

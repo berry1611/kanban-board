@@ -23,7 +23,7 @@ const TaskTodo = (props) => {
         {taskName}
       </Typography>
       <Divider />
-      {progress === '100%' ? (
+      {progress === 100 ? (
         <Box>
           <ProgressBarBG>
             <ProgressBar width={`${progress}`} complete />
