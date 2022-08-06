@@ -14,6 +14,8 @@ import {
   UPDATE_TASK,
   OPEN_EDIT_TASK_MODAL,
   CLOSE_MORE_MODAL,
+  DELETE_TASK,
+  OPEN_REMOVE_TASK_MODAL,
 } from 'state/action-types';
 
 const initialState = {
@@ -24,12 +26,14 @@ const initialState = {
     addGroupTask: false,
     addNewTask: false,
     editTask: false,
+    removeTask: false,
     moreModal: false,
   },
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    // Authentication
     case LOGIN:
     case SIGNUP:
       localStorage.setItem(storageKey.USER_INFO, JSON.stringify({ ...action?.payload }));
@@ -37,18 +41,24 @@ const reducer = (state = initialState, action) => {
     case LOGOUT:
       localStorage.clear();
       return { ...state, authToken: null };
+
+    // Modal Toggle
     case OPEN_GROUP_TASK_MODAL:
       return { ...state, modal: { ...state.modal, addGroupTask: true } };
     case OPEN_CREATE_TASK_MODAL:
       return { ...state, modal: { ...state.modal, addNewTask: true } };
     case OPEN_EDIT_TASK_MODAL:
       return { ...state, modal: { ...state.modal, editTask: true } };
+    case OPEN_REMOVE_TASK_MODAL:
+      return { ...state, modal: { ...state.modal, removeTask: true } };
     case OPEN_MORE_MODAL:
       return { ...state, modal: { ...state.modal, moreModal: true } };
     case CLOSE_MORE_MODAL:
       return { ...state, modal: { ...state.modal, moreModal: false } };
     case CLOSE_ALL_MODAL:
-      return { ...state, modal: { addGroupTask: false, addNewTask: false, moreModal: false, editTask: false } };
+      return { ...state, modal: { addGroupTask: false, addNewTask: false, moreModal: false, editTask: false, removeTask: false } };
+
+    // Main
     case GET_TODOS:
       return { ...state, groupTasks: action.payload };
     case GET_TASKS:
@@ -59,6 +69,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, tasks: [...state.tasks, action.payload] };
     case UPDATE_TASK:
       return { ...state, tasks: state.tasks.map((task) => (task.id === action.payload.id ? action.payload : task)) };
+    case DELETE_TASK:
+      return { ...state, tasks: state.tasks.filter((task) => task.id !== action.payload.task_id) };
     default:
       return state;
   }

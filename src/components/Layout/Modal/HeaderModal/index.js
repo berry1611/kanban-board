@@ -5,12 +5,12 @@ import { useDispatch } from 'react-redux';
 import { CLOSE_ALL_MODAL } from 'state/action-types';
 
 const HeaderModal = (props) => {
-  const { setTaskId, headerName, fontSize, lineHeight, closeButton, addIcon, ...rest } = props;
+  const { taskId, setTaskId, headerName, fontSize, lineHeight, closeButton, addIcon, ...rest } = props;
   const dispatch = useDispatch();
 
   const handleClick = () => {
     dispatch({ type: CLOSE_ALL_MODAL });
-    setTaskId(null);
+    if (taskId) setTaskId(null);
   };
 
   return (

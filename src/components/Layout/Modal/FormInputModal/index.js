@@ -44,7 +44,7 @@ const FormInputModal = (props) => {
   return (
     <ModalBG open={addNewTask || editTask}>
       <Container>
-        <Header setTaskId={setTaskId} headerName={!editTask ? 'Create Task' : 'Edit Task'} lineHeight={28} flexGrow={1} padding="24px" closeButton borderRadius="10px 10px 0 0" />
+        <Header taskId={task_id} setTaskId={setTaskId} headerName={!editTask ? 'Create Task' : 'Edit Task'} lineHeight={28} flexGrow={1} padding="24px" closeButton borderRadius="10px 10px 0 0" />
         <Form onSubmit={handleSubmit}>
           <Typography bold>Task Name</Typography>
           <Input name="name" placeholder="Type your Task" type="text" value={formData.name} onChange={handleChange} />

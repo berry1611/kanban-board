@@ -11,3 +11,4 @@ API.interceptors.request.use((req) => {
 export const getTasks = (todo_id) => API.get(`/todos/${todo_id}/items`);
 export const createTask = (formData, todo_id) => API.post(`/todos/${todo_id}/items`, formData);
 export const updateTask = (formData, todo_id, task_id) => API.patch(`/todos/${todo_id}/items/${task_id}`, formData);
+export const deleteTask = (todo_id, task_id) => API.delete(`/todos/${todo_id}/items/${task_id}`);
