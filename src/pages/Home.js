@@ -36,17 +36,15 @@ const Home = () => {
   };
 
   return (
-    <>
+    <DragDropContext onDragEnd={handleDragEnd}>
       {errorMessage ? <ErrorNotif errorMessage={errorMessage} /> : null}
       {isLoading ? <LoadingSpinner /> : null}
       <Header divider padding="18px 20px" />
-      <DragDropContext onDragEnd={handleDragEnd}>
-        <GroupTasks setTodoId={setTodoId} setTaskId={setTaskId} />
-      </DragDropContext>
+      <GroupTasks setTodoId={setTodoId} setTaskId={setTaskId} />
       <FormInputModal todo_id={todoId} task_id={taskId} setTaskId={setTaskId} />
       <MoreModal taskId={taskId} setTaskId={setTaskId} todoId={todoId} setTodoId={setTodoId} />
       <DeleteConfirmationModal todoId={todoId} taskId={taskId} />
-    </>
+    </DragDropContext>
   );
 };
 export default Home;
