@@ -9,15 +9,16 @@ import { useEffect } from 'react';
 import { getTasks } from 'state/action-creators/tasks';
 
 const GroupTask = (props) => {
-  const { id, name, color, month } = props;
+  const { todo_id, setTodoId, name, color, month } = props;
   const dispatch = useDispatch();
 
   const handleNewTask = () => {
     dispatch({ type: OPEN_CREATE_TASK_MODAL });
+    setTodoId(todo_id);
   };
 
   useEffect(() => {
-    dispatch(getTasks(id));
+    dispatch(getTasks(todo_id));
   }, []);
 
   return (
@@ -26,12 +27,11 @@ const GroupTask = (props) => {
         <Typography color={color}>{name}</Typography>
       </Box>
       <Typography bold>{month}</Typography>
-      <TaskTodos todo_id={id} />
-      <Button display="flex" alignItems="center" gap="6.67px" onClick={handleNewTask}>
+      <TaskTodos todo_id={todo_id} />
+      <Button id={todo_id} display="flex" alignItems="center" gap="6.67px" onClick={handleNewTask}>
         <MdAddCircleOutline size={20} />
         <Typography>New Task</Typography>
       </Button>
-      <FormInputModal headerName="Create Task" todo_id={id} />
     </Board>
   );
 };

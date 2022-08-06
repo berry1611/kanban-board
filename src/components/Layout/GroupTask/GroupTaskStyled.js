@@ -38,9 +38,9 @@ export const Board = styled.div`
   padding: 16px;
   border-radius: 4px;
   gap: 8px;
-  flex: 2 0 20%;
+  flex-grow: 1;
 
-  ${colorSelector}
+  ${colorSelector};
 `;
 
 export const Box = styled.div`

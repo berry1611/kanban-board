@@ -23,10 +23,10 @@ const TaskTodo = (props) => {
         {taskName}
       </Typography>
       <Divider />
-      {progress === 100 ? (
+      {progress >= 100 ? (
         <Box>
           <ProgressBarBG>
-            <ProgressBar width={`${progress}`} complete />
+            <ProgressBar width="100%" complete />
           </ProgressBarBG>
           <IconWrapper margin="0 30px 0 0">
             <BsFillCheckCircleFill size={16} color={colors.success.main} />
@@ -36,10 +36,10 @@ const TaskTodo = (props) => {
       ) : (
         <Box>
           <ProgressBarBG>
-            <ProgressBar width={`${progress}`} />
+            <ProgressBar width={`${progress}%`} />
           </ProgressBarBG>
           <Typography margin="0 30px 0 0" lineHeight={16} fontFamily="Inter" color="#757575">
-            {progress}
+            {progress}%
           </Typography>
           <MdMoreHoriz size={24} color="#757575" />
         </Box>
