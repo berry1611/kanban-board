@@ -3,9 +3,13 @@ import { FiArrowRight, FiArrowLeft, FiTrash2 } from 'react-icons/fi';
 import { BiEditAlt } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { CLOSE_MORE_MODAL, OPEN_EDIT_TASK_MODAL, OPEN_REMOVE_TASK_MODAL } from 'state/action-types';
+import { updateTask } from 'state/action-creators/tasks';
+
+const initialState = { target_todo_id: null };
 
 const MoreModal = ({ taskId, setTaskId, todoId, setTodoId }) => {
   const { moreModal } = useSelector((state) => state.modal);
+  const groupTasksIds = useSelector((state) => state.groupTasks.map((task) => task.id));
   const dispatch = useDispatch();
 
   const handleClose = () => {
@@ -23,15 +27,27 @@ const MoreModal = ({ taskId, setTaskId, todoId, setTodoId }) => {
     setTaskId(taskId);
   };
 
+  const handleMoveRight = () => {
+    dispatch(updateTask({ target_todo_id: todoId + 1 }, todoId, taskId));
+  };
+
+  const handleMoveLeft = () => {
+    dispatch(updateTask({ target_todo_id: todoId - 1 }, todoId, taskId));
+  };
+
   return (
     <InvisBG open={moreModal} onClick={handleClose}>
       <Container>
-        <ListItem>
-          <FiArrowRight size={16} /> Move Right
-        </ListItem>
-        <ListItem>
-          <FiArrowLeft size={16} /> Move Left
-        </ListItem>
+        {todoId !== groupTasksIds[groupTasksIds.length - 1] ? (
+          <ListItem onClick={handleMoveRight}>
+            <FiArrowRight size={16} /> Move Right
+          </ListItem>
+        ) : null}
+        {todoId !== groupTasksIds[0] ? (
+          <ListItem onClick={handleMoveLeft}>
+            <FiArrowLeft size={16} /> Move Left
+          </ListItem>
+        ) : null}
         <ListItem onClick={handleEdit}>
           <BiEditAlt size={20} /> Edit
         </ListItem>

@@ -16,7 +16,11 @@ const FormInputModal = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (task) setFormData(task);
+    if (task) {
+      setFormData(task);
+    } else {
+      setFormData(initialState);
+    }
   }, [task]);
 
   const handleChange = (e) => {
@@ -34,7 +38,7 @@ const FormInputModal = (props) => {
     if (!editTask) {
       dispatch(createTask(formData, todo_id));
     } else {
-      dispatch(updateTask(formData, todo_id, task_id));
+      dispatch(updateTask({ ...formData, target_todo_id: todo_id }, todo_id, task_id));
       setTaskId(null);
     }
     setFormData(initialState);
