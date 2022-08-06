@@ -33,6 +33,7 @@ export const TypographyStyled = styled.p`
   line-height: ${(props) => `${props.lineHeight || 20}px`};
   padding: ${(props) => props.padding || 0};
   margin: ${(props) => props.margin || 0};
+  background-color: ${(props) => props.bgcolor};
 
   ${colorSelector};
 `;

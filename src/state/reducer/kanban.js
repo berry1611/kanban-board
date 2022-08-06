@@ -1,10 +1,12 @@
 import { storageKey } from 'constant/storageKey';
-import { CREATE_TASK, CREATE_TODO, GET_TASKS, GET_TODOS, LOGIN, LOGOUT, SIGNUP, UPDATE_TASK, DELETE_TASK } from 'state/action-types';
+import { CREATE_TASK, CREATE_TODO, GET_TASKS, GET_TODOS, LOGIN, LOGOUT, SIGNUP, UPDATE_TASK, DELETE_TASK, START_LOADING, END_LOADING, SET_ERROR, RESET_ERROR } from 'state/action-types';
 
 const initialState = {
   groupTasks: [],
   authToken: null,
   tasks: [],
+  isLoading: false,
+  errorMessage: null,
 };
 
 const kanbanReducer = (state = initialState, action) => {
@@ -31,6 +33,17 @@ const kanbanReducer = (state = initialState, action) => {
       return { ...state, tasks: state.tasks.map((task) => (task.id === action.payload.id ? action.payload : task)) };
     case DELETE_TASK:
       return { ...state, tasks: state.tasks.filter((task) => task.id !== action.payload.task_id) };
+    case SET_ERROR:
+      return { ...state, errorMessage: action.payload };
+    case RESET_ERROR:
+      return { ...state, errorMessage: null };
+
+    // Loading
+    case START_LOADING:
+      return { ...state, isLoading: true };
+    case END_LOADING:
+      return { ...state, isLoading: false };
+
     default:
       return state;
   }

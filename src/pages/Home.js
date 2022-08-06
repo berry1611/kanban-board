@@ -1,12 +1,15 @@
 import { DeleteConfirmationModal, FormInputModal, GroupTasks, Header, MoreModal } from 'components/Layout';
+import ErrorNotif from 'components/Layout/ErrorNotif';
+import { LoadingSpinner } from 'components/UI';
 import { storageKey } from 'constant/storageKey';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getTodos } from 'state/action-creators/todos';
 
 const Home = () => {
   const user = localStorage.getItem(storageKey.USER_INFO);
+  const { isLoading, errorMessage } = useSelector((state) => state.kanban);
   const [todoId, setTodoId] = useState(null);
   const [taskId, setTaskId] = useState(null);
   const navigate = useNavigate();
@@ -22,6 +25,8 @@ const Home = () => {
 
   return (
     <>
+      {errorMessage ? <ErrorNotif errorMessage={errorMessage} /> : null}
+      {isLoading ? <LoadingSpinner /> : null}
       <Header divider padding="18px 20px" />
       <GroupTasks setTodoId={setTodoId} setTaskId={setTaskId} />
       <FormInputModal todo_id={todoId} task_id={taskId} setTaskId={setTaskId} />

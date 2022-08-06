@@ -16,4 +16,8 @@ export const OPEN_MORE_MODAL = 'OPEN_MORE_MODAL';
 export const CLOSE_MORE_MODAL = 'CLOSE_MORE_MODAL';
 export const CLOSE_ALL_MODAL = 'CLOSE_ALL_MODAL';
 
+export const START_LOADING = 'START_LOADING';
+export const END_LOADING = 'END_LOADING';
 export const SET_OFFSET = 'SET_OFFSET';
+export const SET_ERROR = 'SET_ERROR';
+export const RESET_ERROR = 'RESET_ERROR';
