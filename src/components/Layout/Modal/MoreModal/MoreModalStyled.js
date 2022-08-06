@@ -33,9 +33,9 @@ export const ListItem = styled.button`
 `;
 
 export const InvisBG = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0);

@@ -10,7 +10,7 @@ const initialState = { name: '', progress_percentage: '' };
 
 const FormInputModal = (props) => {
   const { todo_id, task_id, setTaskId } = props;
-  const task = useSelector((state) => (task_id ? state.tasks.find((p) => p.id === task_id) : null));
+  const task = useSelector((state) => (task_id ? state.kanban.tasks.find((p) => p.id === task_id) : null));
   const { addNewTask, editTask } = useSelector((state) => state.modal);
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();

@@ -4,11 +4,15 @@ import TaskTodo from '../TaskTodo';
 import { Container } from './TaskTodosStyled';
 
 const TaskTodos = ({ todo_id, setTaskId, setTodoId }) => {
-  const tasks = useSelector((state) => state.tasks);
+  const tasks = useSelector((state) => state.kanban.tasks);
   const filteredTasks = tasks.filter((task) => task.todo_id === todo_id);
 
   if (!filteredTasks.length) {
-    return <TaskTodo taskName={null} />;
+    return (
+      <Container>
+        <TaskTodo taskName={null} />
+      </Container>
+    );
   }
 
   return (

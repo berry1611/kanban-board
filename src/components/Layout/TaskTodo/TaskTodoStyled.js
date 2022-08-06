@@ -5,15 +5,15 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 16px;
   gap: 8px;
   background-color: #fafafa;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   box-sizing: border-box;
   width: 100%;
-  padding: ${(props) => props.padding};
+  padding: ${(props) => props.padding || '16px'};
   margin: ${(props) => props.margin};
+  align-self: stretch;
 `;
 
 export const Divider = styled.hr`
@@ -42,7 +42,7 @@ export const ProgressBar = styled.div`
   border-bottom-left-radius: 20px;
   border-top-right-radius: ${(props) => (props.complete ? '20px' : 0)};
   border-bottom-right-radius: ${(props) => (props.complete ? '20px' : 0)};
-  background-color: ${(props) => (props.complete ? '#43936C' : colors.primary.main)};
+  background-color: ${(props) => (props.complete ? colors.success.main : colors.primary.main)};
 `;
 
 export const Box = styled.div`

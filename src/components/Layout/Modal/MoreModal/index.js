@@ -5,11 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CLOSE_MORE_MODAL, OPEN_EDIT_TASK_MODAL, OPEN_REMOVE_TASK_MODAL } from 'state/action-types';
 import { updateTask } from 'state/action-creators/tasks';
 
-const initialState = { target_todo_id: null };
-
 const MoreModal = ({ taskId, setTaskId, todoId, setTodoId }) => {
   const { moreModal } = useSelector((state) => state.modal);
-  const groupTasksIds = useSelector((state) => state.groupTasks.map((task) => task.id));
+  const groupTasksIds = useSelector((state) => state.kanban.groupTasks.map((task) => task.id));
   const dispatch = useDispatch();
 
   const handleClose = () => {

@@ -39,7 +39,6 @@ export const Board = styled.div`
   border-radius: 4px;
   gap: 8px;
   flex-grow: 1;
-  height: auto;
   align-self: baseline;
 
   ${colorSelector};

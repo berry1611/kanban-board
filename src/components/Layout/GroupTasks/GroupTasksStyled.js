@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
+export const GridContainer = styled.div`
+  display: grid;
   box-sizing: border-box;
-  margin: 24px;
+  grid-template-columns: 24.2% 24.2% 24.2% 24.2%;
+  padding: 24px;
   gap: 16px;
-  flex-wrap: wrap;
 `;
