@@ -5,7 +5,7 @@ import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { colors } from 'constant';
 import { useDispatch } from 'react-redux';
 import { OPEN_MORE_MODAL, SET_OFFSET } from 'state/action-types';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 const TaskTodo = (props) => {
   const { taskId, taskName, progress, setTaskId, setTodoId, todo_id } = props;
