@@ -8,6 +8,7 @@ import { updateTask } from 'state/action-creators/tasks';
 const MoreModal = ({ taskId, setTaskId, todoId, setTodoId }) => {
   const { moreModal } = useSelector((state) => state.modal);
   const groupTasksIds = useSelector((state) => state.kanban.groupTasks.map((task) => task.id));
+  const { offsetLeft, offsetTop } = useSelector((state) => state.offset);
   const dispatch = useDispatch();
 
   const handleClose = () => {
@@ -34,7 +35,7 @@ const MoreModal = ({ taskId, setTaskId, todoId, setTodoId }) => {
   };
 
   return (
-    <InvisBG open={moreModal} onClick={handleClose}>
+    <InvisBG top={offsetTop > 0.75 * window.innerHeight ? `${offsetTop - 120}px` : `${offsetTop + 25}px`} left={offsetLeft > 0.75 * window.innerWidth ? `${offsetLeft - 340}px` : `${offsetLeft}px`} open={moreModal} onClick={handleClose}>
       <Container>
         {todoId !== groupTasksIds[groupTasksIds.length - 1] ? (
           <ListItem onClick={handleMoveRight}>

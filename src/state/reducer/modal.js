@@ -12,19 +12,19 @@ const modalReducer = (state = initialState, action) => {
   switch (action.type) {
     // Modal Toggle
     case OPEN_GROUP_TASK_MODAL:
-      return { ...state, modal: { ...state.modal, addGroupTask: true } };
+      return { ...state, addGroupTask: true };
     case OPEN_CREATE_TASK_MODAL:
-      return { ...state, modal: { ...state.modal, addNewTask: true } };
+      return { ...state, addNewTask: true };
     case OPEN_EDIT_TASK_MODAL:
-      return { ...state, modal: { ...state.modal, editTask: true } };
+      return { ...state, editTask: true };
     case OPEN_REMOVE_TASK_MODAL:
-      return { ...state, modal: { ...state.modal, removeTask: true } };
+      return { ...state, removeTask: true };
     case OPEN_MORE_MODAL:
-      return { ...state, modal: { ...state.modal, moreModal: true } };
+      return { ...state, moreModal: true };
     case CLOSE_MORE_MODAL:
-      return { ...state, modal: { ...state.modal, moreModal: false } };
+      return { ...state, moreModal: false };
     case CLOSE_ALL_MODAL:
-      return { ...state, modal: { addGroupTask: false, addNewTask: false, moreModal: false, editTask: false, removeTask: false } };
+      return { addGroupTask: false, addNewTask: false, moreModal: false, editTask: false, removeTask: false };
     default:
       return state;
   }
