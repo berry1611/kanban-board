@@ -3,8 +3,10 @@ import { colors } from 'constant';
 
 export const Container = styled.div`
   display: flex;
+  z-index: 1;
   flex-direction: column;
   align-items: flex-start;
+  background-color: #ffffff;
   gap: 12px;
   padding: 8px 22px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
@@ -24,7 +26,18 @@ export const ListItem = styled.button`
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.2px;
+  cursor: pointer;
   &:hover {
     color: ${(props) => (props.delete ? `${colors.danger.main}` : `${colors.primary.main}`)};
   }
+`;
+
+export const InvisBG = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
 `;

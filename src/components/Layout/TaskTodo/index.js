@@ -3,9 +3,18 @@ import { Box, Container, Divider, IconWrapper, ProgressBar, ProgressBarBG } from
 import { MdMoreHoriz } from 'react-icons/md';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { colors } from 'constant';
+import { useDispatch } from 'react-redux';
+import { OPEN_MORE_MODAL } from 'state/action-types';
 
 const TaskTodo = (props) => {
-  const { taskName, progress } = props;
+  const { taskId, taskName, progress, setTaskId, setTodoId, todo_id } = props;
+  const dispatch = useDispatch();
+
+  const handleOpenMoreModal = () => {
+    dispatch({ type: OPEN_MORE_MODAL });
+    setTaskId(taskId);
+    setTodoId(todo_id);
+  };
 
   if (!taskName) {
     return (
@@ -31,7 +40,7 @@ const TaskTodo = (props) => {
           <IconWrapper margin="0 30px 0 0">
             <BsFillCheckCircleFill size={16} color={colors.success.main} />
           </IconWrapper>
-          <MdMoreHoriz size={30} color="#757575" />
+          <MdMoreHoriz size={30} color="#757575" onClick={handleOpenMoreModal} />
         </Box>
       ) : (
         <Box>
@@ -41,7 +50,7 @@ const TaskTodo = (props) => {
           <Typography margin="0 30px 0 0" lineHeight={16} fontFamily="Inter" color="#757575">
             {progress}%
           </Typography>
-          <MdMoreHoriz size={24} color="#757575" />
+          <MdMoreHoriz size={30} color="#757575" onClick={handleOpenMoreModal} />
         </Box>
       )}
     </Container>

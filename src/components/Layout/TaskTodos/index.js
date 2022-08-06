@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import TaskTodo from '../TaskTodo';
 import { Container } from './TaskTodosStyled';
 
-const TaskTodos = ({ todo_id }) => {
+const TaskTodos = ({ todo_id, setTaskId, setTodoId }) => {
   const tasks = useSelector((state) => state.tasks);
   const filteredTasks = tasks.filter((task) => task.todo_id === todo_id);
 
@@ -12,11 +12,13 @@ const TaskTodos = ({ todo_id }) => {
   }
 
   return (
-    <Container>
-      {filteredTasks.map((task) => (
-        <TaskTodo key={task.id} taskName={task.name} progress={task.progress_percentage} />
-      ))}
-    </Container>
+    <>
+      <Container>
+        {filteredTasks.map((task) => (
+          <TaskTodo key={task.id} taskId={task.id} setTodoId={setTodoId} todo_id={todo_id} setTaskId={setTaskId} taskName={task.name} progress={task.progress_percentage} />
+        ))}
+      </Container>
+    </>
   );
 };
 
