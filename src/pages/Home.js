@@ -6,10 +6,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getTodos } from 'state/action-creators/todos';
+import { DragDropContext } from 'react-beautiful-dnd';
+import { updateTask } from 'state/action-creators/tasks';
 
 const Home = () => {
   const user = localStorage.getItem(storageKey.USER_INFO);
-  const { isLoading, errorMessage } = useSelector((state) => state.kanban);
+  const { isLoading, errorMessage, tasks } = useSelector((state) => state.kanban);
   const [todoId, setTodoId] = useState(null);
   const [taskId, setTaskId] = useState(null);
   const navigate = useNavigate();
@@ -23,12 +25,24 @@ const Home = () => {
     dispatch(getTodos());
   }, []);
 
+  const handleDragEnd = (result) => {
+    const { source, destination, draggableId } = result;
+
+    if (!destination) return;
+    if (destination.droppableId === source.droppableId) return;
+    if (destination.index === source.index && destination.droppableId === source.droppableId) return;
+
+    dispatch(updateTask({ target_todo_id: destination.droppableId }, source.droppableId, draggableId));
+  };
+
   return (
     <>
       {errorMessage ? <ErrorNotif errorMessage={errorMessage} /> : null}
       {isLoading ? <LoadingSpinner /> : null}
       <Header divider padding="18px 20px" />
-      <GroupTasks setTodoId={setTodoId} setTaskId={setTaskId} />
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <GroupTasks setTodoId={setTodoId} setTaskId={setTaskId} />
+      </DragDropContext>
       <FormInputModal todo_id={todoId} task_id={taskId} setTaskId={setTaskId} />
       <MoreModal taskId={taskId} setTaskId={setTaskId} todoId={todoId} setTodoId={setTodoId} />
       <DeleteConfirmationModal todoId={todoId} taskId={taskId} />

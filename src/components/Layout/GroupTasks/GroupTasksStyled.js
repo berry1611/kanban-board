@@ -7,3 +7,8 @@ export const GridContainer = styled.div`
   padding: 24px;
   gap: 16px;
 `;
+
+export const GridItem = styled.div`
+  display: flex;
+  flex-direction: row;
+`;

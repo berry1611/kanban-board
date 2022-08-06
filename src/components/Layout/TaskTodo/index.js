@@ -6,9 +6,10 @@ import { colors } from 'constant';
 import { useDispatch } from 'react-redux';
 import { OPEN_MORE_MODAL, SET_OFFSET } from 'state/action-types';
 import { useRef } from 'react';
+import { Draggable } from 'react-beautiful-dnd';
 
 const TaskTodo = (props) => {
-  const { taskId, taskName, progress, setTaskId, setTodoId, todo_id } = props;
+  const { index, taskId, taskName, progress, setTaskId, setTodoId, todo_id } = props;
   const dispatch = useDispatch();
   const iconRef = useRef();
 
@@ -30,37 +31,41 @@ const TaskTodo = (props) => {
   }
 
   return (
-    <Container>
-      <Typography bold fontSize={14} lineHeight={24}>
-        {taskName}
-      </Typography>
-      <Divider />
-      {progress >= 100 ? (
-        <Box>
-          <ProgressBarBG>
-            <ProgressBar width="100%" complete />
-          </ProgressBarBG>
-          <IconWrapper margin="0 30px 0 0">
-            <BsFillCheckCircleFill size={16} color={colors.success.main} />
-          </IconWrapper>
-          <IconWrapper ref={iconRef}>
-            <MdMoreHoriz size={30} color="#757575" onClick={handleOpenMoreModal} />
-          </IconWrapper>
-        </Box>
-      ) : (
-        <Box>
-          <ProgressBarBG>
-            <ProgressBar width={`${progress}%`} />
-          </ProgressBarBG>
-          <Typography margin="0 30px 0 0" lineHeight={16} fontFamily="Inter" color="#757575">
-            {progress}%
+    <Draggable draggableId={taskId.toString()} index={index}>
+      {(provided) => (
+        <Container {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+          <Typography bold fontSize={14} lineHeight={24}>
+            {taskName}
           </Typography>
-          <IconWrapper ref={iconRef}>
-            <MdMoreHoriz size={30} color="#757575" onClick={handleOpenMoreModal} />
-          </IconWrapper>
-        </Box>
+          <Divider />
+          {progress >= 100 ? (
+            <Box>
+              <ProgressBarBG>
+                <ProgressBar width="100%" complete />
+              </ProgressBarBG>
+              <IconWrapper margin="0 30px 0 0">
+                <BsFillCheckCircleFill size={16} color={colors.success.main} />
+              </IconWrapper>
+              <IconWrapper ref={iconRef}>
+                <MdMoreHoriz size={30} color="#757575" onClick={handleOpenMoreModal} />
+              </IconWrapper>
+            </Box>
+          ) : (
+            <Box>
+              <ProgressBarBG>
+                <ProgressBar width={`${progress}%`} />
+              </ProgressBarBG>
+              <Typography margin="0 30px 0 0" lineHeight={16} fontFamily="Inter" color="#757575">
+                {progress}%
+              </Typography>
+              <IconWrapper ref={iconRef}>
+                <MdMoreHoriz size={30} color="#757575" onClick={handleOpenMoreModal} />
+              </IconWrapper>
+            </Box>
+          )}
+        </Container>
       )}
-    </Container>
+    </Draggable>
   );
 };
 

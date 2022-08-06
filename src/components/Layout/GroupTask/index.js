@@ -6,6 +6,7 @@ import { OPEN_CREATE_TASK_MODAL } from 'state/action-types';
 import TaskTodos from '../TaskTodos';
 import { useEffect } from 'react';
 import { getTasks } from 'state/action-creators/tasks';
+import { Droppable } from 'react-beautiful-dnd';
 
 const GroupTask = (props) => {
   const { todo_id, setTodoId, setTaskId, name, color, month } = props;
@@ -22,17 +23,22 @@ const GroupTask = (props) => {
   }, []);
 
   return (
-    <Board color={color}>
-      <Box color={color}>
-        <Typography color={color}>{name}</Typography>
-      </Box>
-      <Typography bold>{month}</Typography>
-      <TaskTodos todo_id={todo_id} setTodoId={setTodoId} setTaskId={setTaskId} />
-      <Button display="flex" alignItems="center" gap="6.67px" onClick={handleNewTask}>
-        <MdAddCircleOutline size={20} />
-        <Typography>New Task</Typography>
-      </Button>
-    </Board>
+    <Droppable droppableId={todo_id.toString()}>
+      {(provided) => (
+        <Board color={color} ref={provided.innerRef} {...provided.droppableProps}>
+          <Box color={color}>
+            <Typography color={color}>{name}</Typography>
+          </Box>
+          <Typography bold>{month}</Typography>
+          <TaskTodos todo_id={todo_id} setTodoId={setTodoId} setTaskId={setTaskId} />
+          {provided.placeholder}
+          <Button display="flex" alignItems="center" gap="6.67px" onClick={handleNewTask}>
+            <MdAddCircleOutline size={20} />
+            <Typography>New Task</Typography>
+          </Button>
+        </Board>
+      )}
+    </Droppable>
   );
 };
 export default GroupTask;
