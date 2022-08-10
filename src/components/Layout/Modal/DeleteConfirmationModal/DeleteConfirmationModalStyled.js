@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { breakPoint } from 'constant';
 
 export const Container = styled.div`
   position: fixed;
@@ -10,6 +11,9 @@ export const Container = styled.div`
   border-radius: 10px;
   background-color: #ffffff;
   padding: 24px;
+  @media (max-width: ${`${breakPoint.sm}px`}) {
+    width: 320px;
+  }
 `;
 
 export const Footer = styled.div`

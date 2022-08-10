@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { breakPoint } from 'constant';
 
 export const Container = styled.div`
   position: fixed;
@@ -6,6 +7,9 @@ export const Container = styled.div`
   background-color: #ffffff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  @media (max-width: ${`${breakPoint.sm}px`}) {
+    width: 320px;
+  }
 `;
 
 export const Form = styled.form`

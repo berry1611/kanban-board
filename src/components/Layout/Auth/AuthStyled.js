@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { colors } from 'constant';
+import { colors, breakPoint } from 'constant';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
@@ -11,8 +11,18 @@ export const Container = styled.div`
   box-sizing: border-box;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 24px;
+  margin: 24px;
   gap: 24px;
   width: 20%;
+  @media (max-width: ${`${breakPoint.lg}px`}) {
+    width: 40%;
+  }
+  @media (max-width: ${`${breakPoint.md}px`}) {
+    width: 50%;
+  }
+  @media (max-width: ${`${breakPoint.sm}px`}) {
+    width: 70%;
+  }
 `;
 
 export const ContainerBG = styled.div`

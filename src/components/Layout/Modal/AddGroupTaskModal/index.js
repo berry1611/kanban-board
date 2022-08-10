@@ -56,7 +56,7 @@ const AddGroupTaskModal = () => {
             <Button onClick={handleCancel} bold lineHeight={24}>
               Cancel
             </Button>
-            <Button bold lineHeight={24}>
+            <Button type="submit" bold lineHeight={24}>
               Add New Group
             </Button>
           </Footer>

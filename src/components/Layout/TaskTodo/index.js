@@ -58,14 +58,13 @@ const TaskTodo = (props) => {
               <IconWrapper margin="0 30px 0 0">
                 <BsFillCheckCircleFill size={16} color={colors.success.main} />
               </IconWrapper>
-              <IconWrapper ref={iconRef}>
-                <MdMoreHoriz
-                  size={30}
-                  color="#757575"
-                  onMouseEnter={handleOpenMoreModal}
-                  onMouseLeave={handleCloseModal}
-                  onClick={handleOpenMoreModal}
-                />
+              <IconWrapper
+                ref={iconRef}
+                onTouchStart={handleOpenMoreModal}
+                onMouseEnter={handleOpenMoreModal}
+                onMouseLeave={handleCloseModal}
+              >
+                <MdMoreHoriz size={30} color="#757575" />
               </IconWrapper>
             </Box>
           ) : (
@@ -76,14 +75,13 @@ const TaskTodo = (props) => {
               <Typography margin="0 30px 0 0" lineHeight={16} fontFamily="Inter" color="#757575">
                 {progress || 0}%
               </Typography>
-              <IconWrapper ref={iconRef}>
-                <MdMoreHoriz
-                  size={30}
-                  color="#757575"
-                  onMouseEnter={handleOpenMoreModal}
-                  onMouseLeave={handleCloseModal}
-                  onClick={handleOpenMoreModal}
-                />
+              <IconWrapper
+                ref={iconRef}
+                onTouchStart={handleOpenMoreModal}
+                onMouseEnter={handleOpenMoreModal}
+                onMouseLeave={handleCloseModal}
+              >
+                <MdMoreHoriz size={30} color="#757575" />
               </IconWrapper>
             </Box>
           )}
