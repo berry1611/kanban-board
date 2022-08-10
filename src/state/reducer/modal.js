@@ -8,7 +8,6 @@ import {
   OPEN_REMOVE_TASK_MODAL,
   SET_TODO_ID,
   SET_TASK_ID,
-  RESET_TODO_ID,
   RESET_TASK_ID,
 } from 'state/actionTypes';
 
@@ -43,8 +42,6 @@ const modalReducer = (state = initialState, action) => {
       return { ...state, todoId: action.payload };
     case SET_TASK_ID:
       return { ...state, taskId: action.payload };
-    case RESET_TODO_ID:
-      return { ...state, todoId: null };
     case RESET_TASK_ID:
       return { ...state, taskId: null };
     default:

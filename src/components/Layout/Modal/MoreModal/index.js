@@ -2,11 +2,17 @@ import { Container, InvisBG, ListItem } from './MoreModalStyled';
 import { FiArrowRight, FiArrowLeft, FiTrash2 } from 'react-icons/fi';
 import { BiEditAlt } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
-import { CLOSE_MORE_MODAL, OPEN_EDIT_TASK_MODAL, OPEN_REMOVE_TASK_MODAL } from 'state/actionTypes';
+import {
+  CLOSE_MORE_MODAL,
+  OPEN_EDIT_TASK_MODAL,
+  OPEN_REMOVE_TASK_MODAL,
+  SET_TASK_ID,
+  SET_TODO_ID,
+} from 'state/actionTypes';
 import { updateTask } from 'state/actionCreators/tasks';
 
-const MoreModal = ({ taskId, setTaskId, todoId, setTodoId }) => {
-  const { moreModal } = useSelector((state) => state.modal);
+const MoreModal = () => {
+  const { moreModal, taskId, todoId } = useSelector((state) => state.modal);
   const groupTasksIds = useSelector((state) => state.kanban.groupTasks.map((task) => task.id));
   const currentGroupTasksId = groupTasksIds.indexOf(todoId);
   const { offsetLeft, offsetTop } = useSelector((state) => state.offset);
@@ -18,13 +24,13 @@ const MoreModal = ({ taskId, setTaskId, todoId, setTodoId }) => {
 
   const handleEdit = () => {
     dispatch({ type: OPEN_EDIT_TASK_MODAL });
-    setTaskId(taskId);
+    dispatch({ type: SET_TASK_ID, payload: taskId });
   };
 
   const handleDelete = () => {
     dispatch({ type: OPEN_REMOVE_TASK_MODAL });
-    setTodoId(todoId);
-    setTaskId(taskId);
+    dispatch({ type: SET_TODO_ID, payload: todoId });
+    dispatch({ type: SET_TASK_ID, payload: taskId });
   };
 
   const handleMoveRight = () => {

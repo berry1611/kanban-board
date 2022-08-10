@@ -57,7 +57,7 @@ export const deleteTask = (todo_id, task_id) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
 
-    const { data } = await api.deleteTask(todo_id, task_id);
+    await api.deleteTask(todo_id, task_id);
     dispatch({ type: DELETE_TASK, payload: { task_id } });
 
     dispatch({ type: RESET_ERROR });

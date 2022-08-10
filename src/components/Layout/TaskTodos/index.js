@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import TaskTodo from '../TaskTodo';
 import { Container } from './TaskTodosStyled';
 
-const TaskTodos = ({ todo_id, setTaskId, setTodoId }) => {
+const TaskTodos = ({ todoId }) => {
   const tasks = useSelector((state) => state.kanban.tasks);
-  const filteredTasks = tasks.filter((task) => task.todo_id === todo_id);
+  const filteredTasks = tasks.filter((task) => task.todo_id === todoId);
 
   if (!filteredTasks.length) {
     return (
@@ -23,9 +23,7 @@ const TaskTodos = ({ todo_id, setTaskId, setTodoId }) => {
             index={index}
             key={task.id}
             taskId={task.id}
-            setTodoId={setTodoId}
-            todo_id={todo_id}
-            setTaskId={setTaskId}
+            todoId={todoId}
             taskName={task.name}
             progress={task.progress_percentage}
           />

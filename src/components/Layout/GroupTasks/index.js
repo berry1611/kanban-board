@@ -4,7 +4,7 @@ import { GridContainer } from './GroupTasksStyled';
 
 const color = ['primary', 'secondary', 'danger', 'success'];
 
-const GroupTasks = ({ setTodoId, setTaskId }) => {
+const GroupTasks = () => {
   const { groupTasks } = useSelector((state) => state.kanban);
 
   return (
@@ -13,8 +13,6 @@ const GroupTasks = ({ setTodoId, setTaskId }) => {
         <GroupTask
           key={groupTask.id}
           todoId={groupTask.id}
-          setTodoId={setTodoId}
-          setTaskId={setTaskId}
           name={groupTask.title}
           color={color[index % 4]}
           month={groupTask.description}

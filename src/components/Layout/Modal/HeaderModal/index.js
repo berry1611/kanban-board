@@ -2,15 +2,17 @@ import { Typography } from 'components/UI';
 import { Container, IconWrapper } from './HeaderModalStyled';
 import { CgClose } from 'react-icons/cg';
 import { useDispatch } from 'react-redux';
-import { CLOSE_ALL_MODAL } from 'state/actionTypes';
+import { CLOSE_ALL_MODAL, RESET_TASK_ID } from 'state/actionTypes';
+import { useSelector } from 'react-redux';
 
 const HeaderModal = (props) => {
-  const { taskId, setTaskId, headerName, fontSize, lineHeight, closeButton, addIcon, ...rest } = props;
+  const { taskId } = useSelector((state) => state.modal);
+  const { headerName, fontSize, lineHeight, closeButton, addIcon, ...rest } = props;
   const dispatch = useDispatch();
 
   const handleClick = () => {
     dispatch({ type: CLOSE_ALL_MODAL });
-    if (taskId) setTaskId(null);
+    if (taskId) dispatch({ type: RESET_TASK_ID });
   };
 
   return (

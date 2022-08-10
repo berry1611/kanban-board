@@ -4,19 +4,19 @@ import { MdMoreHoriz } from 'react-icons/md';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { colors } from 'constant';
 import { useDispatch } from 'react-redux';
-import { OPEN_MORE_MODAL, SET_OFFSET } from 'state/actionTypes';
+import { OPEN_MORE_MODAL, SET_OFFSET, SET_TASK_ID, SET_TODO_ID } from 'state/actionTypes';
 import { useRef } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
 const TaskTodo = (props) => {
-  const { index, taskId, taskName, progress, setTaskId, setTodoId, todo_id } = props;
+  const { index, taskId, taskName, progress, todoId } = props;
   const dispatch = useDispatch();
   const iconRef = useRef();
 
   const handleOpenMoreModal = () => {
     dispatch({ type: OPEN_MORE_MODAL });
-    setTaskId(taskId);
-    setTodoId(todo_id);
+    dispatch({ type: SET_TASK_ID, payload: taskId });
+    dispatch({ type: SET_TODO_ID, payload: todoId });
     if (iconRef.current)
       dispatch({
         type: SET_OFFSET,
@@ -61,10 +61,10 @@ const TaskTodo = (props) => {
           ) : (
             <Box>
               <ProgressBarBG>
-                <ProgressBar width={`${progress}%`} />
+                <ProgressBar width={`${progress || 0}%`} />
               </ProgressBarBG>
               <Typography margin="0 30px 0 0" lineHeight={16} fontFamily="Inter" color="#757575">
-                {progress}%
+                {progress || 0}%
               </Typography>
               <IconWrapper ref={iconRef}>
                 <MdMoreHoriz size={30} color="#757575" onClick={handleOpenMoreModal} />

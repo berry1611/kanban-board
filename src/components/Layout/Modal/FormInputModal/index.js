@@ -3,14 +3,14 @@ import { Button, Input, Typography } from 'components/UI';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTask, updateTask } from 'state/actionCreators/tasks';
-import { CLOSE_ALL_MODAL } from 'state/actionTypes';
+import { CLOSE_ALL_MODAL, RESET_TASK_ID } from 'state/actionTypes';
 import { Footer, Container, Form, ModalBG } from './FormInputModalStyled';
 
 const initialState = { name: '', progress_percentage: '' };
 
-const FormInputModal = (props) => {
-  const { todo_id, task_id, setTaskId } = props;
-  const task = useSelector((state) => (task_id ? state.kanban.tasks.find((p) => p.id === task_id) : null));
+const FormInputModal = () => {
+  const { todoId, taskId } = useSelector((state) => state.modal);
+  const task = useSelector((state) => (taskId ? state.kanban.tasks.find((p) => p.id === taskId) : null));
   const { addNewTask, editTask } = useSelector((state) => state.modal);
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
@@ -36,10 +36,10 @@ const FormInputModal = (props) => {
     e.preventDefault();
 
     if (!editTask) {
-      dispatch(createTask(formData, todo_id));
+      dispatch(createTask(formData, todoId));
     } else {
-      dispatch(updateTask({ ...formData, target_todo_id: todo_id }, todo_id, task_id));
-      setTaskId(null);
+      dispatch(updateTask({ ...formData, target_todo_id: todoId }, todoId, taskId));
+      dispatch({ type: RESET_TASK_ID });
     }
     setFormData(initialState);
     dispatch({ type: CLOSE_ALL_MODAL });
@@ -49,8 +49,6 @@ const FormInputModal = (props) => {
     <ModalBG open={addNewTask || editTask}>
       <Container>
         <Header
-          taskId={task_id}
-          setTaskId={setTaskId}
           headerName={!editTask ? 'Create Task' : 'Edit Task'}
           lineHeight={28}
           flexGrow={1}

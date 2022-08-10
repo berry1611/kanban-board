@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CLOSE_ALL_MODAL } from 'state/actionTypes';
 import { deleteTask } from 'state/actionCreators/tasks';
 
-const DeleteConfirmationModal = ({ todoId, taskId }) => {
-  const { removeTask } = useSelector((state) => state.modal);
+const DeleteConfirmationModal = () => {
+  const { removeTask, todoId, taskId } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
 
   const handleCancel = () => {
