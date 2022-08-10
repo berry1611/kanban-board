@@ -40,7 +40,6 @@ export const InvisBG = styled.div`
   padding-left: ${(props) => props.left};
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0);
   visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
   box-sizing: border-box;
 `;

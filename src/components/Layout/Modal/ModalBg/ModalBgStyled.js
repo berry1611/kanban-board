@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   z-index: 2;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -11,5 +11,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
 `;

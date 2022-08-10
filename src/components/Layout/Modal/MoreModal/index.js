@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   CLOSE_MORE_MODAL,
   OPEN_EDIT_TASK_MODAL,
+  OPEN_MORE_MODAL,
   OPEN_REMOVE_TASK_MODAL,
   SET_TASK_ID,
   SET_TODO_ID,
@@ -41,14 +42,22 @@ const MoreModal = () => {
     dispatch(updateTask({ target_todo_id: groupTasksIds[currentGroupTasksId - 1] }, todoId, taskId));
   };
 
+  const handleOpenModal = () => {
+    dispatch({ type: OPEN_MORE_MODAL });
+  };
+
+  const handleCloseModal = () => {
+    dispatch({ type: CLOSE_MORE_MODAL });
+  };
+
   return (
     <InvisBG
-      top={offsetTop > 0.75 * window.innerHeight ? `${offsetTop - 120}px` : `${offsetTop + 25}px`}
+      top={offsetTop > 0.75 * (window.innerHeight + window.scrollY) ? `${offsetTop - 110}px` : `${offsetTop + 15}px`}
       left={offsetLeft > 0.75 * window.innerWidth ? `${offsetLeft - 340}px` : `${offsetLeft}px`}
       open={moreModal}
       onClick={handleClose}
     >
-      <Container>
+      <Container onMouseEnter={handleOpenModal} onMouseLeave={handleCloseModal}>
         {todoId !== groupTasksIds[groupTasksIds.length - 1] ? (
           <ListItem onClick={handleMoveRight}>
             <FiArrowRight size={16} /> Move Right

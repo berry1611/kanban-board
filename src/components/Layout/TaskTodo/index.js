@@ -4,7 +4,7 @@ import { MdMoreHoriz } from 'react-icons/md';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { colors } from 'constant';
 import { useDispatch } from 'react-redux';
-import { OPEN_MORE_MODAL, SET_OFFSET, SET_TASK_ID, SET_TODO_ID } from 'state/actionTypes';
+import { CLOSE_MORE_MODAL, OPEN_MORE_MODAL, SET_OFFSET, SET_TASK_ID, SET_TODO_ID } from 'state/actionTypes';
 import { useRef } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
@@ -26,6 +26,10 @@ const TaskTodo = (props) => {
           offsetTop: iconRef.current.offsetTop,
         },
       });
+  };
+
+  const handleCloseModal = () => {
+    dispatch({ type: CLOSE_MORE_MODAL });
   };
 
   if (!taskName) {
@@ -55,7 +59,13 @@ const TaskTodo = (props) => {
                 <BsFillCheckCircleFill size={16} color={colors.success.main} />
               </IconWrapper>
               <IconWrapper ref={iconRef}>
-                <MdMoreHoriz size={30} color="#757575" onClick={handleOpenMoreModal} />
+                <MdMoreHoriz
+                  size={30}
+                  color="#757575"
+                  onMouseEnter={handleOpenMoreModal}
+                  onMouseLeave={handleCloseModal}
+                  onClick={handleOpenMoreModal}
+                />
               </IconWrapper>
             </Box>
           ) : (
@@ -67,7 +77,13 @@ const TaskTodo = (props) => {
                 {progress || 0}%
               </Typography>
               <IconWrapper ref={iconRef}>
-                <MdMoreHoriz size={30} color="#757575" onClick={handleOpenMoreModal} />
+                <MdMoreHoriz
+                  size={30}
+                  color="#757575"
+                  onMouseEnter={handleOpenMoreModal}
+                  onMouseLeave={handleCloseModal}
+                  onClick={handleOpenMoreModal}
+                />
               </IconWrapper>
             </Box>
           )}

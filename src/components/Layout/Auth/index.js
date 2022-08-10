@@ -34,17 +34,29 @@ const Auth = ({ registerForm }) => {
           {registerForm && (
             <>
               <Typography bold>Name</Typography>
-              <Input name="name" placeholder="Name" type="text" onChange={handleChange} />
+              <Input name="name" placeholder="Name" type="text" value={formData.name} onChange={handleChange} />
             </>
           )}
           <Typography bold>Email</Typography>
-          <Input name="email" placeholder="Email" type="email" onChange={handleChange} />
+          <Input name="email" placeholder="Email" type="email" value={formData.email} onChange={handleChange} />
           <Typography bold>Password</Typography>
-          <Input name="password" placeholder="Password" type="password" onChange={handleChange} />
+          <Input
+            name="password"
+            placeholder="Password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
           {registerForm && (
             <>
               <Typography bold>Password Confirmation</Typography>
-              <Input name="password_confirmation" placeholder="Password" type="password" onChange={handleChange} />
+              <Input
+                name="password_confirmation"
+                placeholder="Password"
+                type="password"
+                value={formData.password_confirmation}
+                onChange={handleChange}
+              />
             </>
           )}
           <br />
