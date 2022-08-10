@@ -1,5 +1,19 @@
 import { storageKey } from 'constant/storageKey';
-import { CREATE_TASK, CREATE_TODO, GET_TASKS, GET_TODOS, LOGIN, LOGOUT, SIGNUP, UPDATE_TASK, DELETE_TASK, START_LOADING, END_LOADING, SET_ERROR, RESET_ERROR } from 'state/action-types';
+import {
+  CREATE_TASK,
+  CREATE_TODO,
+  GET_TASKS,
+  GET_TODOS,
+  LOGIN,
+  LOGOUT,
+  SIGNUP,
+  UPDATE_TASK,
+  DELETE_TASK,
+  START_LOADING,
+  END_LOADING,
+  SET_ERROR,
+  RESET_ERROR,
+} from 'state/actionTypes';
 
 const initialState = {
   groupTasks: [],

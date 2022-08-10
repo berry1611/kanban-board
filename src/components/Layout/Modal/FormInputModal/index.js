@@ -2,8 +2,8 @@ import Header from 'components/Layout/Modal/HeaderModal';
 import { Button, Input, Typography } from 'components/UI';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createTask, updateTask } from 'state/action-creators/tasks';
-import { CLOSE_ALL_MODAL } from 'state/action-types';
+import { createTask, updateTask } from 'state/actionCreators/tasks';
+import { CLOSE_ALL_MODAL } from 'state/actionTypes';
 import { Footer, Container, Form, ModalBG } from './FormInputModalStyled';
 
 const initialState = { name: '', progress_percentage: '' };
@@ -48,17 +48,51 @@ const FormInputModal = (props) => {
   return (
     <ModalBG open={addNewTask || editTask}>
       <Container>
-        <Header taskId={task_id} setTaskId={setTaskId} headerName={!editTask ? 'Create Task' : 'Edit Task'} lineHeight={28} flexGrow={1} padding="24px" closeButton borderRadius="10px 10px 0 0" />
+        <Header
+          taskId={task_id}
+          setTaskId={setTaskId}
+          headerName={!editTask ? 'Create Task' : 'Edit Task'}
+          lineHeight={28}
+          flexGrow={1}
+          padding="24px"
+          closeButton
+          borderRadius="10px 10px 0 0"
+        />
         <Form onSubmit={handleSubmit}>
           <Typography bold>Task Name</Typography>
           <Input name="name" placeholder="Type your Task" type="text" value={formData.name} onChange={handleChange} />
           <Typography bold>Progress</Typography>
-          <Input name="progress_percentage" placeholder="70%" type="text" width="33%" value={formData.progress_percentage} onChange={handleChange} />
+          <Input
+            name="progress_percentage"
+            placeholder="70%"
+            type="text"
+            width="33%"
+            value={formData.progress_percentage}
+            onChange={handleChange}
+          />
           <Footer>
-            <Button bold padding="4px 16px" border="1px solid #e0e0e0" boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)" borderRadius={8} fontSize={14} lineHeight={24} onClick={handleCancel}>
+            <Button
+              bold
+              padding="4px 16px"
+              border="1px solid #e0e0e0"
+              boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)"
+              borderRadius={8}
+              fontSize={14}
+              lineHeight={24}
+              onClick={handleCancel}
+            >
               Cancel
             </Button>
-            <Button type="submit" bold color="primary" padding="4px 16px" boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)" borderRadius={8} fontSize={14} lineHeight={24}>
+            <Button
+              type="submit"
+              bold
+              color="primary"
+              padding="4px 16px"
+              boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)"
+              borderRadius={8}
+              fontSize={14}
+              lineHeight={24}
+            >
               {!editTask ? 'Save Task' : 'Save Change'}
             </Button>
           </Footer>

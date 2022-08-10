@@ -5,15 +5,13 @@ import { storageKey } from 'constant/storageKey';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getTodos } from 'state/action-creators/todos';
+import { getTodos } from 'state/actionCreators/todos';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { updateTask } from 'state/action-creators/tasks';
+import { updateTask } from 'state/actionCreators/tasks';
 
 const Home = () => {
   const user = localStorage.getItem(storageKey.USER_INFO);
-  const { isLoading, errorMessage, tasks } = useSelector((state) => state.kanban);
-  const [todoId, setTodoId] = useState(null);
-  const [taskId, setTaskId] = useState(null);
+  const { isLoading, errorMessage } = useSelector((state) => state.kanban);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

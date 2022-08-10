@@ -15,6 +15,10 @@ export const OPEN_REMOVE_TASK_MODAL = 'OPEN_REMOVE_TASK_MODAL';
 export const OPEN_MORE_MODAL = 'OPEN_MORE_MODAL';
 export const CLOSE_MORE_MODAL = 'CLOSE_MORE_MODAL';
 export const CLOSE_ALL_MODAL = 'CLOSE_ALL_MODAL';
+export const SET_TODO_ID = 'SET_TODO_ID';
+export const SET_TASK_ID = 'SET_TASK_ID';
+export const RESET_TODO_ID = 'RESET_TODO_ID';
+export const RESET_TASK_ID = 'RESET_TASK_ID';
 
 export const START_LOADING = 'START_LOADING';
 export const END_LOADING = 'END_LOADING';

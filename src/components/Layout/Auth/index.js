@@ -2,7 +2,7 @@ import { Button, Input, Typography } from 'components/UI';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login, signup } from 'state/action-creators/auth';
+import { login, signup } from 'state/actionCreators/auth';
 import { ContainerBG, Container, Form, LinkStyled } from './AuthStyled';
 
 const initialState = { name: '', email: '', password: '', password_confirmation: '' };
@@ -44,11 +44,28 @@ const Auth = ({ registerForm }) => {
           {registerForm && (
             <>
               <Typography bold>Password Confirmation</Typography>
-              <Input name="password_confirmation" placeholder="Password" type="password" required onChange={handleChange} />
+              <Input
+                name="password_confirmation"
+                placeholder="Password"
+                type="password"
+                required
+                onChange={handleChange}
+              />
             </>
           )}
           <br />
-          <Button type="submit" bold color="primary" width="100%" padding="4px 16px" justifyContent="center" boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)" borderRadius={8} fontSize={14} lineHeight={24}>
+          <Button
+            type="submit"
+            bold
+            color="primary"
+            width="100%"
+            padding="4px 16px"
+            justifyContent="center"
+            boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)"
+            borderRadius={8}
+            fontSize={14}
+            lineHeight={24}
+          >
             {registerForm ? 'Sign Up' : 'Login'}
           </Button>
         </Form>

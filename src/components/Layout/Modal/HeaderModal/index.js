@@ -2,7 +2,7 @@ import { Typography } from 'components/UI';
 import { Container, IconWrapper } from './HeaderModalStyled';
 import { CgClose } from 'react-icons/cg';
 import { useDispatch } from 'react-redux';
-import { CLOSE_ALL_MODAL } from 'state/action-types';
+import { CLOSE_ALL_MODAL } from 'state/actionTypes';
 
 const HeaderModal = (props) => {
   const { taskId, setTaskId, headerName, fontSize, lineHeight, closeButton, addIcon, ...rest } = props;

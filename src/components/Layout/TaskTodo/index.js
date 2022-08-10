@@ -4,7 +4,7 @@ import { MdMoreHoriz } from 'react-icons/md';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { colors } from 'constant';
 import { useDispatch } from 'react-redux';
-import { OPEN_MORE_MODAL, SET_OFFSET } from 'state/action-types';
+import { OPEN_MORE_MODAL, SET_OFFSET } from 'state/actionTypes';
 import { useRef } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
@@ -17,7 +17,15 @@ const TaskTodo = (props) => {
     dispatch({ type: OPEN_MORE_MODAL });
     setTaskId(taskId);
     setTodoId(todo_id);
-    if (iconRef.current) dispatch({ type: SET_OFFSET, payload: { taskId, offsetLeft: iconRef.current.offsetLeft, offsetTop: iconRef.current.offsetTop } });
+    if (iconRef.current)
+      dispatch({
+        type: SET_OFFSET,
+        payload: {
+          taskId,
+          offsetLeft: iconRef.current.offsetLeft,
+          offsetTop: iconRef.current.offsetTop,
+        },
+      });
   };
 
   if (!taskName) {

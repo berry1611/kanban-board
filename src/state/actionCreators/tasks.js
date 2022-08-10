@@ -1,5 +1,14 @@
 import * as api from 'api';
-import { CREATE_TASK, DELETE_TASK, END_LOADING, GET_TASKS, START_LOADING, UPDATE_TASK, SET_ERROR, RESET_ERROR } from 'state/action-types';
+import {
+  CREATE_TASK,
+  DELETE_TASK,
+  END_LOADING,
+  GET_TASKS,
+  START_LOADING,
+  UPDATE_TASK,
+  SET_ERROR,
+  RESET_ERROR,
+} from 'state/actionTypes';
 
 export const getTasks = (todo_id) => async (dispatch) => {
   try {

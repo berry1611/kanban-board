@@ -1,5 +1,5 @@
 import * as api from 'api';
-import { CREATE_TODO, GET_TODOS, START_LOADING, END_LOADING, SET_ERROR, RESET_ERROR } from 'state/action-types';
+import { CREATE_TODO, GET_TODOS, START_LOADING, END_LOADING, SET_ERROR, RESET_ERROR } from 'state/actionTypes';
 
 export const getTodos = () => async (dispatch) => {
   try {

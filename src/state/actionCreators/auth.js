@@ -1,5 +1,5 @@
 import * as api from 'api';
-import { LOGIN, SIGNUP, RESET_ERROR, SET_ERROR } from 'state/action-types';
+import { LOGIN, SIGNUP, RESET_ERROR, SET_ERROR } from 'state/actionTypes';
 
 export const signup = (formData, navigate) => async (dispatch) => {
   try {

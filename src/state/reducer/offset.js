@@ -1,4 +1,4 @@
-import { SET_OFFSET } from 'state/action-types';
+import { SET_OFFSET } from 'state/actionTypes';
 
 const initialState = {
   taskId: null,

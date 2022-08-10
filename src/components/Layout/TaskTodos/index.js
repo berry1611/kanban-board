@@ -19,7 +19,16 @@ const TaskTodos = ({ todo_id, setTaskId, setTodoId }) => {
     <>
       <Container>
         {filteredTasks.map((task, index) => (
-          <TaskTodo index={index} key={task.id} taskId={task.id} setTodoId={setTodoId} todo_id={todo_id} setTaskId={setTaskId} taskName={task.name} progress={task.progress_percentage} />
+          <TaskTodo
+            index={index}
+            key={task.id}
+            taskId={task.id}
+            setTodoId={setTodoId}
+            todo_id={todo_id}
+            setTaskId={setTaskId}
+            taskName={task.name}
+            progress={task.progress_percentage}
+          />
         ))}
       </Container>
     </>

@@ -10,7 +10,15 @@ const GroupTasks = ({ setTodoId, setTaskId }) => {
   return (
     <GridContainer>
       {groupTasks.map((groupTask, index) => (
-        <GroupTask key={groupTask.id} todo_id={groupTask.id} setTodoId={setTodoId} setTaskId={setTaskId} name={groupTask.title} color={color[index % 4]} month={groupTask.description} />
+        <GroupTask
+          key={groupTask.id}
+          todoId={groupTask.id}
+          setTodoId={setTodoId}
+          setTaskId={setTaskId}
+          name={groupTask.title}
+          color={color[index % 4]}
+          month={groupTask.description}
+        />
       ))}
     </GridContainer>
   );
