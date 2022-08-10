@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTodo } from 'state/actionCreators/todos';
 import { CLOSE_ALL_MODAL } from 'state/actionTypes';
-import { Footer, Container, Form, ModalBG } from './AddGroupTaskModalStyled';
+import ModalBg from '../ModalBg';
+import { Footer, Container, Form } from './AddGroupTaskModalStyled';
 
 const initialState = { title: '', description: '' };
 
@@ -30,7 +31,7 @@ const AddGroupTaskModal = () => {
   };
 
   return (
-    <ModalBG open={addGroupTask}>
+    <ModalBg open={addGroupTask}>
       <Container>
         <Header
           headerName="Create Group Task"
@@ -61,7 +62,7 @@ const AddGroupTaskModal = () => {
           </Footer>
         </Form>
       </Container>
-    </ModalBG>
+    </ModalBg>
   );
 };
 

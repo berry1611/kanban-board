@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTask, updateTask } from 'state/actionCreators/tasks';
 import { CLOSE_ALL_MODAL, RESET_TASK_ID } from 'state/actionTypes';
-import { Footer, Container, Form, ModalBG } from './FormInputModalStyled';
+import ModalBg from '../ModalBg';
+import { Footer, Container, Form } from './FormInputModalStyled';
 
 const initialState = { name: '', progress_percentage: '' };
 
@@ -46,7 +47,7 @@ const FormInputModal = () => {
   };
 
   return (
-    <ModalBG open={addNewTask || editTask}>
+    <ModalBg open={addNewTask || editTask}>
       <Container>
         <Header
           headerName={!editTask ? 'Create Task' : 'Edit Task'}
@@ -78,7 +79,7 @@ const FormInputModal = () => {
           </Footer>
         </Form>
       </Container>
-    </ModalBG>
+    </ModalBg>
   );
 };
 

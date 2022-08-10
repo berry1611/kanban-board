@@ -1,11 +1,12 @@
 import Header from 'components/Layout/Modal/HeaderModal';
-import { Container, Footer, ModalBG } from './DeleteConfirmationModalStyled';
+import { Container, Footer } from './DeleteConfirmationModalStyled';
 import { HiOutlineExclamation } from 'react-icons/hi';
 import { colors } from 'constant';
 import { Typography, Button } from 'components/UI';
 import { useDispatch, useSelector } from 'react-redux';
 import { CLOSE_ALL_MODAL } from 'state/actionTypes';
 import { deleteTask } from 'state/actionCreators/tasks';
+import ModalBg from '../ModalBg';
 
 const DeleteConfirmationModal = () => {
   const { removeTask, todoId, taskId } = useSelector((state) => state.modal);
@@ -21,7 +22,7 @@ const DeleteConfirmationModal = () => {
   };
 
   return (
-    <ModalBG open={removeTask}>
+    <ModalBg open={removeTask}>
       <Container>
         <Header
           headerName="Delete Task"
@@ -40,7 +41,7 @@ const DeleteConfirmationModal = () => {
           </Button>
         </Footer>
       </Container>
-    </ModalBG>
+    </ModalBg>
   );
 };
 
