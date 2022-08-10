@@ -24,31 +24,12 @@ const Header = () => {
       <Typography fontSize={18} bold>
         Product Roadmap
       </Typography>
-      <Button
-        onClick={handleClick}
-        display="flex"
-        alignItems="center"
-        color="primary"
-        padding="4px 16px"
-        lineHeight={20}
-        borderRadius={8}
-        boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)"
-      >
+      <Button onClick={handleClick} fontSize={12} alignItems="center" lineHeight={20}>
         <MdAdd />
         Add New Group
       </Button>
       <AddGroupTaskModal />
-      <Button
-        onClick={handleLogout}
-        display="flex"
-        alignItems="center"
-        color="primary"
-        padding="4px 16px"
-        margin="0 0 0 auto"
-        lineHeight={20}
-        borderRadius={8}
-        boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)"
-      >
+      <Button onClick={handleLogout} fontSize={12} alignItems="center" margin="0 0 0 auto" lineHeight={20}>
         Logout
       </Button>
     </Container>

@@ -69,28 +69,10 @@ const FormInputModal = () => {
             onChange={handleChange}
           />
           <Footer>
-            <Button
-              bold
-              padding="4px 16px"
-              border="1px solid #e0e0e0"
-              boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)"
-              borderRadius={8}
-              fontSize={14}
-              lineHeight={24}
-              onClick={handleCancel}
-            >
+            <Button bold lineHeight={24} onClick={handleCancel}>
               Cancel
             </Button>
-            <Button
-              type="submit"
-              bold
-              color="primary"
-              padding="4px 16px"
-              boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)"
-              borderRadius={8}
-              fontSize={14}
-              lineHeight={24}
-            >
+            <Button type="submit" bold lineHeight={24}>
               {!editTask ? 'Save Task' : 'Save Change'}
             </Button>
           </Footer>

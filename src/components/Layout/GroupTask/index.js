@@ -32,7 +32,16 @@ const GroupTask = (props) => {
           <Typography bold>{month}</Typography>
           <TaskTodos todoId={todoId} />
           {provided.placeholder}
-          <Button display="flex" alignItems="center" gap="6.67px" onClick={handleNewTask}>
+          <Button
+            color="default"
+            fontSize={12}
+            borderRadius={0}
+            padding="0"
+            boxShadow="none"
+            alignItems="center"
+            gap="6.67px"
+            onClick={handleNewTask}
+          >
             <MdAddCircleOutline size={20} />
             <Typography>New Task</Typography>
           </Button>

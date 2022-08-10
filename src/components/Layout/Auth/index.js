@@ -34,38 +34,21 @@ const Auth = ({ registerForm }) => {
           {registerForm && (
             <>
               <Typography bold>Name</Typography>
-              <Input name="name" placeholder="Name" type="text" required onChange={handleChange} />
+              <Input name="name" placeholder="Name" type="text" onChange={handleChange} />
             </>
           )}
           <Typography bold>Email</Typography>
-          <Input name="email" placeholder="Email" type="email" required onChange={handleChange} />
+          <Input name="email" placeholder="Email" type="email" onChange={handleChange} />
           <Typography bold>Password</Typography>
-          <Input name="password" placeholder="Password" type="password" required onChange={handleChange} />
+          <Input name="password" placeholder="Password" type="password" onChange={handleChange} />
           {registerForm && (
             <>
               <Typography bold>Password Confirmation</Typography>
-              <Input
-                name="password_confirmation"
-                placeholder="Password"
-                type="password"
-                required
-                onChange={handleChange}
-              />
+              <Input name="password_confirmation" placeholder="Password" type="password" onChange={handleChange} />
             </>
           )}
           <br />
-          <Button
-            type="submit"
-            bold
-            color="primary"
-            width="100%"
-            padding="4px 16px"
-            justifyContent="center"
-            boxShadow="0px 1px 2px rgba(0, 0, 0, 0.12)"
-            borderRadius={8}
-            fontSize={14}
-            lineHeight={24}
-          >
+          <Button type="submit" bold width="100%" justifyContent="center" fontSize={14} lineHeight={24}>
             {registerForm ? 'Sign Up' : 'Login'}
           </Button>
         </Form>
